@@ -1,3 +1,3 @@
 #!/bin/bash
-export MQTT="10.1.0.100"
-( npm start)
+export MQTT="10.1.1.83"
+( node app)

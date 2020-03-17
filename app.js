@@ -64,7 +64,17 @@ function main() {
     const {
         MQTT
     } = process.env;
-    mqttClient = mqtt.connect(MQTT);
+    console.log(`MQTT=${MQTT}`)
+//    mqttClient = mqtt.connect(MQTT);
+var client  = mqtt.connect(`mqtt://${MQTT}`)
+
+client.on('connect', function () {
+  client.subscribe('presence', function (err) {
+    if (!err) {
+      client.publish('presence', 'Hello mqtt')
+    }
+  })
+})
     setInterval(CheckForAlarm1, 1000 * 60);
   } catch (err) {
     console.log('Error !!!', err);
