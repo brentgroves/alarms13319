@@ -66,12 +66,12 @@ function main() {
     } = process.env;
     console.log(`MQTT=${MQTT}`)
 //    mqttClient = mqtt.connect(MQTT);
-var client  = mqtt.connect(`mqtt://${MQTT}`)
+    mqttClient  = mqtt.connect(`mqtt://${MQTT}`)
 
-client.on('connect', function () {
-  client.subscribe('presence', function (err) {
+mqttClient.on('connect', function () {
+  mqttClient.subscribe('presence', function (err) {
     if (!err) {
-      client.publish('presence', 'Hello mqtt')
+      mqttClient.publish('presence', 'Hello mqtt')
     }
   })
 })
