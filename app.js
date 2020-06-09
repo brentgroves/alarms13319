@@ -4,6 +4,10 @@ var datetime = require('node-datetime');
 
 var mqttClient;
 
+var {
+  MQTT_SERVER
+} = process.env;
+
 // At the bottom of the wsdl file you will find the http address of the service
 
 // CNC422
@@ -61,12 +65,10 @@ function CheckForAlarm1() {
 
 function main() {
   try {
-    const {
-        MQTT
-    } = process.env;
-    console.log(`MQTT=${MQTT}`)
-//    mqttClient = mqtt.connect(MQTT);
-    mqttClient  = mqtt.connect(`mqtt://${MQTT}`)
+    console.log(`Starting Alarms13319`);
+    console.log(`MQTT_SERVER=${MQTT_SERVER}`);
+   // console.log(`MQTT=${MQTT}`)  // MQTT ALWAYS SAYS LOCALHOST!!
+    mqttClient  = mqtt.connect(`mqtt://${MQTT_SERVER}`)
 
 mqttClient.on('connect', function () {
   mqttClient.subscribe('presence', function (err) {
