@@ -22,7 +22,7 @@
     "prettier": "^1.19.1"
   },
   "dependencies": {
-    "@bgroves/common": "^1.1.0",
+    "@bgroves/common": "^1.2.0",
     "jstz": "^2.1.1",
     "moment": "^2.26.0",
     "mqtt": "^3.0.0",
