@@ -5,7 +5,7 @@ const common = require('@bgroves/common');
 
 var mqttClient;
 
-var { MQTT_SERVER } = process.env;
+var { MQTT_SERVER,MQTT_PORT } = process.env;
 
 // At the bottom of the wsdl file you will find the http address of the service
 
@@ -62,10 +62,9 @@ function CheckForAlarm1() {
 function main() {
   try {
     common.log(`Starting Alarms13319`);
-    common.log(`MQTT_SERVER=${MQTT_SERVER}`);
-    // log(`MQTT=${MQTT}`)  // MQTT ALWAYS SAYS LOCALHOST!!
-    mqttClient = mqtt.connect(`mqtt://${MQTT_SERVER}`);
-
+    common.log(`MQTT_SERVER=${MQTT_SERVER},MQTT_PORT=${MQTT_PORT}`);
+    const mqttClient = mqtt.connect(`mqtt://${MQTT_SERVER}:${MQTT_PORT}`);
+  
     mqttClient.on("connect", function () {
       mqttClient.subscribe("presence", function (err) {
         if (!err) {

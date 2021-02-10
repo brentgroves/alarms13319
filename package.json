@@ -1,5 +1,5 @@
 {
-  "name": "Alarms13319",
+  "name": "alarms13319",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brentgroves/Alarms13319.git"
+    "url": "git+https://github.com/brentgroves/alarms13319.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brentgroves/Alarms13319/issues"
+    "url": "https://github.com/brentgroves/alarms13319/issues"
   },
-  "homepage": "https://github.com/brentgroves/Alarms13319#readme",
+  "homepage": "https://github.com/brentgroves/alarms13319#readme",
   "devDependencies": {
     "eslint": "^6.8.0",
     "prettier": "^1.19.1"
