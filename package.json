@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/",
+    "start": "node src/"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/brentgroves/alarms13319#readme",
   "devDependencies": {
     "eslint": "^6.8.0",
+    "nodemon": "^2.0.7",
     "prettier": "^1.19.1"
   },
   "dependencies": {

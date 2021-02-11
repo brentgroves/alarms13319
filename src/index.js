@@ -61,20 +61,29 @@ function CheckForAlarm1() {
 
 function main() {
   try {
-    common.log(`Starting Alarms13319`);
+    common.log(`Starting alarms13319`);
     common.log(`MQTT_SERVER=${MQTT_SERVER},MQTT_PORT=${MQTT_PORT}`);
-    const mqttClient = mqtt.connect(`mqtt://${MQTT_SERVER}:${MQTT_PORT}`);
+    mqttClient = mqtt.connect(`mqtt://${MQTT_SERVER}:${MQTT_PORT}`);
   
     mqttClient.on("connect", function () {
-      mqttClient.subscribe("presence", function (err) {
+      mqttClient.subscribe("Alarm13319-1", function (err) {
         if (!err) {
-          mqttClient.publish("presence", "Hello mqtt");
+          common.log('alarms13319 subscribed to: Alarm13319-1');
+        }
+      });
+      mqttClient.subscribe("Alarm13319-2", function (err) {
+        if (!err) {
+          common.log('alarms13319 subscribed to: Alarm13319-2');
         }
       });
     });
+    mqttClient.on('message', function (topic, message) {
+      const p = JSON.parse(message.toString()); // payload is a buffer
+      common.log(`alarms13319.mqtt=>${message.toString()}`);
+    });
     setInterval(CheckForAlarm1, 1000 * 60);
   } catch (err) {
-    console.log("Error !!!", err);
+    console.log("Error !!!!", err);
   }
 }
 main();

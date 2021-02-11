@@ -26,4 +26,5 @@ RUN npm install
 COPY . .
 
 # I think this cmd gets overriden by the docker compose yaml script.
-CMD dockerize -wait tcp://db:3306 -wait tcp://mqtt2:1883 node app
+CMD dockerize -wait tcp://mqtt2:1883 npm start
+# CMD dockerize -wait tcp://db:3306 -wait tcp://mqtt2:1883 node app
