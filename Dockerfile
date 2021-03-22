@@ -1,5 +1,18 @@
 FROM node:14-alpine
 
+ARG TZ='America/Indiana/Indianapolis'
+ENV TZ ${TZ}
+
+    # apk add --no-cache tzdata
+RUN apk upgrade --update \
+    && apk add -U tzdata \
+    && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
+    # && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo "${TZ}" > /etc/timezone \
+    && apk del tzdata \
+    && rm -rf \
+    /var/cache/apk/*
+
 # Semantic Version: Major.Minor.Patch
 # Version: 1.0.0
 
